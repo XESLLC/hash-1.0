@@ -42,21 +42,74 @@ def joes_last_name(people)
 end
 
 def last_names(people)
+    each_last_name =[]
+    people.each do |key,value|
+    each_last_name << value[:last_name]
+    end
+    each_last_name
 end
 
 def first_fav_genre(people)
+  f_genre = {}
+  first_f_genre = []
+  people.each do |key,value|
+    f_genre = value[:preferences][:favorite_genres]
+    first_f_genre << f_genre[0]
+  end
+  first_f_genre
 end
 
 def joes_neighbor(people)
+  neighbor = []
+  people.each do |key,value|
+    if value[:sitting_next_to].to_s == "joe"
+      neighbor << value[:last_name]
+    else
+    end
+  end
+  neighbor[0]
 end
 
 def sues_meal(people)
+  meal = []
+  people.each do |key,value|
+    if value[:first_name] == "Sue"
+      meal << value[:preferences][:meal]
+    else
+    end
+  end
+  meal[0]
 end
 
 def joes_first_letter_date(people)
+
+  cor_dates = {}
+  date = []
+  people.each do |key,value|
+    if key == "joe"
+      cor_dates = value[:correspondence]
+    else
+    end
+  end
+    cor_dates.each do |key,value|
+    date << key[:date]
+    end
+  date.first
 end
 
 def sues_last_letter_desc(people)
+  cor_value = {}
+  cor = []
+  people.each do |key,value|
+    if key == "sue"
+      cor_value = value[:correspondence]
+    else
+    end
+  end
+  cor_value.each do |key,value|
+    cor << key[:description]
+    end
+  cor.last
 end
 
 puts "*"*80
